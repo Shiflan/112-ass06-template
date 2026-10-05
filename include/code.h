@@ -11,6 +11,7 @@
  * 3. At the bottom, add:
  *    #endif
  */
+#ifndef CODE_H
 
 /*
  * STEP 1: int_Point struct and init function
@@ -20,6 +21,12 @@
  */
 
 /* TODO: struct int_Point { } */
+struct int_Point 
+{
+     int x; 
+     int y; 
+};
+void init_int_point(struct int_Point *point, int x, int y);
 
 /* TODO: void init_int_point(struct int_Point *point, int x, int y); */
 
@@ -31,7 +38,12 @@
  */
 
 /* TODO: struct double_Point { } */
-
+struct double_Point 
+{
+     double x; 
+     double y; 
+};
+void init_double_point(struct double_Point *point, double x, double y);
 /* TODO: void init_double_point(struct double_Point *point, double x, double y); */
 
 /*
@@ -45,7 +57,10 @@
 /* TODO: float sub(float a, float b); */
 /* TODO: float mul(float a, float b); */
 /* TODO: float divide(float a, float b); */
-
+float add(float a, float b);
+float sub(float a, float b);
+float mul(float a, float b);
+float divide(float a, float b);
 /*
  * STEP 5: Function pointer callback
  * 
@@ -58,7 +73,7 @@
  */
 
 /* TODO: double apply_operation(float *arr, int length, float (*operation)(float, float)); */
-
+double apply_operation(float *arr, int length, float (*operation)(float, float));
 /*
  * STEP 6: Typedef for function pointer
  * 
@@ -67,7 +82,7 @@
  */
 
 /* TODO: typedef ... BinaryOp; */
-
+typedef float (*BinaryOp)(float, float);
 /*
  * STEP 7: Typedef struct double_Point
  * 
@@ -76,7 +91,12 @@
  */
 
 /* TODO: typedef struct { double x; double y; } DoublePoint; */
-
+typedef struct
+{
+     double x; 
+     double y; 
+} DoublePoint;
+void init_double_point_typedef(DoublePoint *point, double x, double y);
 /* TODO: void init_double_point_typedef(DoublePoint *point, double x, double y); */
 
 /*
@@ -91,3 +111,17 @@
 /* TODO: struct Calc { } */
 
 /* TODO: void init_calc(struct Calc *calc); */
+
+struct Calc 
+{
+     float a;
+     float b;
+     BinaryOp add;
+     BinaryOp sub;
+     BinaryOp mul;
+     BinaryOp div;
+};
+
+void init_calc(struct Calc *calc);
+
+#endif

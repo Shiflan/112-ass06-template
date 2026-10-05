@@ -1,4 +1,4 @@
-//char *AUTHOR_NAME        = (char *) "Your Name";
+//char *JordanShiflett  = (char *) "JordanShiflett";
 //char *AUTHOR_AUTHORSHIP  = (char *) "I acknowledge that I have worked on this
 // assignment independently, except where explicitly noted and referenced.
 // Any collaboration or use of external resources has been properly cited.
@@ -38,8 +38,8 @@
 
 void init_int_point(struct int_Point *point, int x, int y)
 {
-    /* TODO: Set point->x = x; */
-    /* TODO: Set point->y = y; */
+    point->x = x;
+    point->y = y;
 }
 
 /*
@@ -54,8 +54,8 @@ void init_int_point(struct int_Point *point, int x, int y)
 
 void init_double_point(struct double_Point *point, double x, double y)
 {
-    /* TODO: Set point->x = x; */
-    /* TODO: Set point->y = y; */
+    point->x = x;
+    point->y = y;   
 }
 
 /*
@@ -69,21 +69,25 @@ void init_double_point(struct double_Point *point, double x, double y)
 float add(float a, float b)
 {
     /* TODO: Return a + b; */
+    return a + b; 
 }
 
 float sub(float a, float b)
 {
     /* TODO: Return a - b; */
+    return a - b;
 }
 
 float mul(float a, float b)
 {
     /* TODO: Return a * b; */
+    return a * b;
 }
 
 float divide(float a, float b)
 {
-    /* TODO: Return a / b; (handle division by zero if needed) */
+    /* TODO: Return a / b; (handle division by zero if needed) */ 
+    return a / b; 
 }
 
 /*
@@ -113,6 +117,12 @@ float divide(float a, float b)
 double apply_operation(float *arr, int length, float (*operation)(float, float))
 {
     /* TODO: */
+    float result = arr[0];
+    for (int i = 1; i < length; i++)
+    {
+        result = operation(result, arr[i]);
+    }
+    return (double)result;
 }
 
 /*
@@ -124,7 +134,11 @@ double apply_operation(float *arr, int length, float (*operation)(float, float))
  * 
  * Same as Step 2, but uses the DoublePoint typedef
  */
-
+void init_double_point_typedef(DoublePoint *point, double x, double y)
+{
+    point ->x = x;
+    point ->y = y;
+};
 // void init_double_point_typedef(DoublePoint *point, double x, double y)
 // {
 //     /* TODO:*/
@@ -154,5 +168,10 @@ double apply_operation(float *arr, int length, float (*operation)(float, float))
 
 void init_calc(struct Calc *calc)
 {
-    /* TODO */
+    calc->a = 0.0f;
+    calc->b = 0.0f;
+    calc->add = add;
+    calc->sub = sub;
+    calc->mul = mul;
+    calc->div = divide; 
 }
