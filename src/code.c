@@ -175,3 +175,7 @@ void init_calc(struct Calc *calc)
     calc->mul = mul;
     calc->div = divide; 
 }
+
+
+
+//New Commit 1
