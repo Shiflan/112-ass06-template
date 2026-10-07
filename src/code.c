@@ -179,3 +179,4 @@ void init_calc(struct Calc *calc)
 
 
 //New Commit 1
+//New Commit 2
